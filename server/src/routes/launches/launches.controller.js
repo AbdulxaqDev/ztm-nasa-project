@@ -6,7 +6,6 @@ function httpGetAllLaunches(req, res) {
 
 function httpAddNewLaunch(req, res) {
   const launch = req.body;
-
   if (
     !launch.mission ||
     !launch.rocket ||
