@@ -4,20 +4,6 @@ const planets = require("./planets.mongo.js");
 const { restart } = require("pm2");
 
 const DEFAULT_FLIGHT_NUMBER = 100;
-
-const launch = {
-  flightNumber: 100, // flight_number
-  mission: "Mission Exploration XX", // name 
-  rocket: "Explore IS1", // rocket.name
-  launchDate: new Date("December 27, 2023"), // data_local
-  target: "Kepler-1652 b", // not applicable
-  customers: ["ZTM", "NASA"], // payload.customers for each payload
-  upcoming: true, // upcoming
-  success: true, // success
-};
-
-saveLaunch(launch);
-
 const SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/query"
 
 async function populateLaunches(){
