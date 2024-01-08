@@ -4,11 +4,13 @@ const {
   mongoConnect,
   mongoDisconnect,
 } = require("../../services/mongo.js");
+const { loadPlanetsData } = require("../../models/planets.model.js");
 
 describe("Launches API", () => {
 
   beforeAll(async () => {
     await mongoConnect();
+    await loadPlanetsData();
   });
 
   afterAll(async () => {
