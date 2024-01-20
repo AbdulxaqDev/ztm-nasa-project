@@ -1,3 +1,4 @@
+const fs = require("fs");
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
@@ -12,7 +13,12 @@ app.use(
   })
 );
 
-app.use(morgan("combined"));
+const requestLogStream = fs.createWriteStream(
+  path.join(__dirname, "..", "data", "request.log"), 
+  {flags: "a"}
+)
+
+app.use(morgan("combined", {stream: requestLogStream}));
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(express.json());
