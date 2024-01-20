@@ -9,7 +9,7 @@
 # production
 /build
 /public
-
+/data/request.log
 # misc
 .DS_Store
 .env
